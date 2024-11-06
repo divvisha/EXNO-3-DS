@@ -40,7 +40,7 @@ import pandas as pd
 df=pd.read_csv('/content/Encoding Data.csv')
 df
 ~~~
-![image](https://github.com/user-attachments/assets/7ff1babc-c9ce-4b9d-9811-13941a4699e0)
+![Screenshot 2024-11-06 111251](https://github.com/user-attachments/assets/1f2bc63a-0f80-42ad-ba45-1206524f538a)
 # OrdinalEncoder
 ~~~
 from sklearn.preprocessing import LabelEncoder,OrdinalEncoder
@@ -48,12 +48,12 @@ pm=['Hot','Warm','Cold']
 e1=OrdinalEncoder(categories=[pm])
 e1.fit_transform(df[["ord_2"]])
 ~~~
-![image](https://github.com/user-attachments/assets/9f513685-14c4-4c4e-9d9a-081bdb2ceca3)
+![Screenshot 2024-11-06 111303](https://github.com/user-attachments/assets/f1e981a7-9b52-47d3-9bba-2dfa0d8b1ea6)
 ~~~
 df['bo2']=e1.fit_transform(df[["ord_2"]])
 df
 ~~~
-![image](https://github.com/user-attachments/assets/c137b9d6-0dc3-42a7-9eae-cdef60be98bc)
+![Screenshot 2024-11-06 111346](https://github.com/user-attachments/assets/e06525c6-4cae-48f3-9722-5b7f4cbce845)
 # LabelEncoder
 ~~~
 le=LabelEncoder()
@@ -61,7 +61,7 @@ dfc=df.copy()
 dfc['ord_2']=le.fit_transform(df[["ord_2"]])
 dfc
 ~~~
-![image](https://github.com/user-attachments/assets/4077488e-0e07-4e12-bcde-9523b2fda1e6)
+![Screenshot 2024-11-06 111356](https://github.com/user-attachments/assets/a1ea322c-cc5b-4ecc-83c4-9717472c3de5)
 # OneHotEncoder
 ~~~
 from sklearn.preprocessing import OneHotEncoder
@@ -71,29 +71,29 @@ enc=pd.DataFrame(ohe.fit_transform(df2[['nom_0']]))
 df2=pd.concat([df2,enc],axis=1)
 df2
 ~~~
-![image](https://github.com/user-attachments/assets/27ae0114-58ee-4e4c-a4fe-02894be880f8)
+![Screenshot 2024-11-06 111413](https://github.com/user-attachments/assets/7196171b-511e-40fb-a2a3-7ab2810b124c)
 ~~~
 pd.get_dummies(df2,columns=["nom_0"])
 ~~~
-![image](https://github.com/user-attachments/assets/97fd5904-482d-4751-8ef1-d8c185968fba)
+![Screenshot 2024-11-06 111422](https://github.com/user-attachments/assets/95e5a667-6777-42ad-afaf-87f44a0537cf)
 # BinaryEncoder
 ~~~
 pip install --upgrade category_encoders
 ~~~
-![image](https://github.com/user-attachments/assets/22cbe50a-a233-4424-91e9-2ea96ecf4944)
+![Screenshot 2024-11-06 111438](https://github.com/user-attachments/assets/2139d4ea-1c66-431e-ba06-f41438033f61)
 ~~~
 from category_encoders import BinaryEncoder
 df=pd.read_csv('/content/data.csv')
 df
 ~~~
-![image](https://github.com/user-attachments/assets/0c82d130-0eac-44f3-9571-0a85556c34f9)
+![Screenshot 2024-11-06 111446](https://github.com/user-attachments/assets/32abeffe-e508-4aaa-b47e-f28fb0d6cb8b)
 ~~~
 be=BinaryEncoder()
 nd=be.fit_transform(df['Ord_2'])
 dfb=pd.concat([df,nd],axis=1)
 dfb
 ~~~
-![image](https://github.com/user-attachments/assets/94c9df83-5c1e-422c-9dc2-fab0ce524a48)
+![Screenshot 2024-11-06 111455](https://github.com/user-attachments/assets/c07a9067-a776-4f5b-bc94-464a55b4f4a3)
 # TargetEncoder
 ~~~
 from category_encoders import TargetEncoder
@@ -103,7 +103,7 @@ new=te.fit_transform(X=cc["City"],y=cc["Target"])
 cc=pd.concat([cc,new],axis=1)
 cc
 ~~~
-![image](https://github.com/user-attachments/assets/ce1a4461-87b4-4f1a-b3db-1db8d0c28d6e)
+![Screenshot 2024-11-06 111503](https://github.com/user-attachments/assets/49ab6c61-29b5-40ff-b417-496f5a111034)
 # Data Transformation
 ~~~
 import pandas as pd
@@ -112,32 +112,32 @@ from scipy import stats
 df=pd.read_csv('/content/Data_to_Transform.csv')
 df
 ~~~
-![image](https://github.com/user-attachments/assets/94022e99-13b0-4229-be99-d3851c47ae18)
+![Screenshot 2024-11-06 111511](https://github.com/user-attachments/assets/9f0119e7-20c5-43a9-b348-46cc6f4b46f6)
 ~~~
 df.skew()
 ~~~
-![image](https://github.com/user-attachments/assets/c98ab1ed-14bb-4783-aca0-302b9ccf5cea)
+![Screenshot 2024-11-06 111528](https://github.com/user-attachments/assets/dba468ac-d243-43bf-aa81-a982f3045fed)
 ~~~
 np.log(df["Highly Positive Skew"])
 ~~~
-![image](https://github.com/user-attachments/assets/95b621e7-d78b-46ba-b3f5-d7552a62efdb)
+![Screenshot 2024-11-06 111541](https://github.com/user-attachments/assets/3e8dfe2d-bb1e-41aa-837e-88ab4faa8dd8)
 ~~~
 np.reciprocal(df["Moderate Positive Skew"])
 ~~~
-![image](https://github.com/user-attachments/assets/622c7819-627b-4ec7-bdf2-5355f40a9076)
+![Screenshot 2024-11-06 111549](https://github.com/user-attachments/assets/a91625fd-a9c7-4c41-9214-8f3a0c1f2f57)
 ~~~
 np.sqrt(df["Highly Positive Skew"])
 ~~~
-![image](https://github.com/user-attachments/assets/50613c58-9c2c-4a4a-afd5-9c57b079fdbc)
+![Screenshot 2024-11-06 111558](https://github.com/user-attachments/assets/7257fd0e-8b55-4d5c-b491-e3730432affd)
 ~~~
 np.square(df["Highly Positive Skew"])
 ~~~
-![image](https://github.com/user-attachments/assets/214f0e54-288a-4789-9535-e6c2da9a5476)
+![Screenshot 2024-11-06 111607](https://github.com/user-attachments/assets/75bb54ab-80cb-4c33-8694-c56accb02ee9)
 ~~~
 df["Highly Positive Skew_boxcox"],parameters=stats.boxcox(df["Highly Positive Skew"])
 df
 ~~~
-![image](https://github.com/user-attachments/assets/57ce8efe-49f3-4542-952b-21b7a674e18b)
+![Screenshot 2024-11-06 111624](https://github.com/user-attachments/assets/80d97a72-d400-468f-8c7a-12f04b71bab5)
 ~~~
 import seaborn as sns
 import statsmodels.api as sm
@@ -145,12 +145,12 @@ import matplotlib.pyplot as plt
 sm.qqplot(df["Moderate Negative Skew"],line='45')
 plt.show()
 ~~~
-![image](https://github.com/user-attachments/assets/a3b179cd-edcc-4cae-b1a1-20cc99e7d891)
+![Screenshot 2024-11-06 111633](https://github.com/user-attachments/assets/32558398-392b-4b14-ba90-ab1df6c9801f)
 ~~~
 sm.qqplot(np.reciprocal(df["Moderate Negative Skew"]),line='45')
 plt.show()
 ~~~
-![image](https://github.com/user-attachments/assets/4e39f1d4-aee4-4db6-af9c-df88fecbb1b0)
+![Screenshot 2024-11-06 111642](https://github.com/user-attachments/assets/6e8387f5-b86f-4350-8d15-46ffa9acf9d3)
 ~~~
 from sklearn.preprocessing import QuantileTransformer
 qt=QuantileTransformer(output_distribution='normal',n_quantiles=891)
@@ -158,7 +158,7 @@ df["Moderate Negative Skew"]=qt.fit_transform(df[["Moderate Negative Skew"]])
 sm.qqplot(df["Highly Negative Skew"],line='45')
 plt.show()
 ~~~
-![image](https://github.com/user-attachments/assets/3cc07389-9907-45e0-b621-172f2ecb745c)
+![Screenshot 2024-11-06 111707](https://github.com/user-attachments/assets/49161fd2-8efa-4829-9ac7-f4640562ca9e)
 
 
 # RESULT:
